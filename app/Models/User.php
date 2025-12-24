@@ -2,14 +2,9 @@
 
 namespace App\Models;
 
-use App\Traits\HasRolesTrait;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-use Spatie\Activitylog\Traits\CausesActivity;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin \Illuminate\Database\Query\Builder
@@ -22,7 +17,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRolesTrait, CausesActivity, LogsActivity;
+    use HasFactory, Notifiable;
 
     /**
      * The primary key type is a string (UUID).
