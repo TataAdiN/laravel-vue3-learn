@@ -16,6 +16,13 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
-Route::get('/auth', [AuthController::class, 'index']);
-Route::post('/auth', [AuthController::class, 'auth'])->name('auth.validate');
+Route::get("/", [DashboardController::class, "index"])
+    ->name("home")
+    ->middleware("auth");
+Route::controller(AuthController::class)
+    ->prefix("auth")
+    ->name("auth.")
+    ->group(function () {
+        Route::get("/", "index");
+        Route::post("/", "auth")->name("validate");
+    });
