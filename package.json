@@ -1,21 +1,31 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build"
     },
     "devDependencies": {
-        "axios": "^1.1.2",
-        "laravel-vite-plugin": "^0.7.2",
-        "vite": "^4.5.3"
+        "axios": "^1.13.2",
+        "laravel-vite-plugin": "^2.0.1",
+        "vite": "^7.2.4"
     },
     "dependencies": {
-        "@inertiajs/inertia": "^0.11.1",
-        "@inertiajs/inertia-vue3": "^0.6.0",
-        "@inertiajs/vue3": "^1.0.16",
+        "@inertiajs/core": "^2.2.18",
+        "@inertiajs/vue3": "^2.2.18",
         "@popperjs/core": "^2.11.8",
         "@types/bootstrap": "^5.2.10",
-        "@vitejs/plugin-vue": "^4.6.2",
-        "bootstrap": "^5.3.3"
+        "@vitejs/plugin-vue": "^6.0.1",
+        "autonumeric": "^4.10.9",
+        "bootstrap": "^5.3.8",
+        "feather-icons": "^4.29.2",
+        "maska": "^3.2.0",
+        "puppeteer": "^24.31.0",
+        "simplebar": "^6.3.3",
+        "sweetalert2": "^11.26.3",
+        "vue": "^3.5.24",
+        "vue-multiselect": "^3.4.0",
+        "vue-select": "4.0.0-beta.6",
+        "ziggy-js": "^2.6.0"
     }
 }
