@@ -2,15 +2,37 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @mixin \Illuminate\Database\Query\Builder
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @property int $parent_id
+ * @property string $id
+ * @property string $name
+ * @property string $password
+ * @property int $is_active
+ */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
+
+    /**
+     * The primary key type is a string (UUID).
+     *
+     * @var string
+     */
+    protected $keyType = "string";
+
+    /**
+     * UUIDs are not auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    protected $primaryKey = "id";
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +40,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        "id",
+        "name",
+        "email",
+        "username",
+        "is_active",
+        "password",
     ];
 
     /**
@@ -28,17 +53,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ["password", "remember_token"];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            "password" => "hashed",
+        ];
+    }
 }
