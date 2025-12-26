@@ -1,25 +1,26 @@
-import './bootstrap';
-import 'bootstrap';
-import * as bootstrap from 'bootstrap';
+import "./bootstrap";
+import "bootstrap";
+import * as bootstrap from "bootstrap";
 window.bootstrap = bootstrap;
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from 'ziggy-js';
+import { createApp, h } from "vue";
+import { createInertiaApp } from "@inertiajs/vue3";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { ZiggyVue } from "ziggy-js";
 
 createInertiaApp({
+    title: (title) => `${title} - Laravel 12 Vue3`,
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.vue`,
-            import.meta.glob('./Pages/**/*.vue')
+            import.meta.glob("./Pages/**/*.vue"),
         ),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
-            .mount(el)
+            .mount(el);
     },
     progress: {
-        color: '#e91e63',
+        color: "#e91e63",
     },
-});
+}).then(r =>{});

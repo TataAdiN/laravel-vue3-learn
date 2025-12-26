@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Application</title>
+        <title inertia>Application</title>
         <link rel="stylesheet" href="{{ url('modules/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url('modules/fontawesome/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ url('css/style.css') }}">

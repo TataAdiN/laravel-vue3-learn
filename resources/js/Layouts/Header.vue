@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { inject } from "vue";
+
+const user = inject("user");
+</script>
 <template>
     <div class="navbar-bg"></div>
     <nav class="navbar navbar-expand-lg main-navbar">
@@ -305,7 +309,7 @@
                         class="rounded-circle mr-1"
                     />
                     <div class="d-sm-none d-lg-inline-block">
-                        Hi, Ujang Maman
+                        {{ user.name }}
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
